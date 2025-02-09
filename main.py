@@ -67,8 +67,13 @@ def create_recognizer():
 
 # LLM 模型
 MODEL_NAME = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
-# DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-DEVICE = "mps"
+# 动态选择设备
+if torch.cuda.is_available():
+    DEVICE = "cuda"  # 如果支持 CUDA，则选择 GPU
+elif torch.backends.mps.is_available():
+    DEVICE = "mps"  # 如果支持 MPS（Apple Silicon），则选择 MPS
+else:
+    DEVICE = "cpu"  # 如果都不支持，则使用 CPU
 tokenizer = None
 llm_model = None
 model_loaded = False
