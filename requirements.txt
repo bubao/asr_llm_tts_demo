@@ -1,0 +1,9 @@
+jieba==0.42.1
+kokoro==0.7.9
+misaki==0.7.10
+numpy==1.26.4
+ordered-set==4.1.0
+pypinyin==0.53.0
+sounddevice==0.5.1
+soundfile==0.13.1
+torch==2.6.0
